@@ -1,2 +1,9 @@
 @use 'base/reset';
-@use'base/_variables.scss';
+@use 'base/variables';
+@use 'layout/header';
+@use 'components/cards';
+@use 'pages/home';
+@use 'utils/mixins';
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/modals';
