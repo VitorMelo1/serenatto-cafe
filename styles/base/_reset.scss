@@ -1,0 +1,17 @@
+@use 'variables.scss';
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: variables.$font-family-primary;
+    background-color: variables.$secondary-color;
+    color:variables.$primary-color;
+    a{
+        color: $primary-color;
+        &:hover{
+            color: $accent-color;
+        }
+    }
+}
