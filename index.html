@@ -21,20 +21,18 @@
         <a class="navbar-brand" href="#">
           <img src="./assets/logo-maior.png" alt="Logo da cafeteria Serenatto">
         </a>
+  
+        <!-- Botão do Menu Hamburguer (controla a sidebar) -->
         <button class="navbar-toggler" aria-label="Menu" id="menu-toggle">
           <span class="hamburger-icon"></span>
         </button>
-        <div class="navbar-menu">
+  
+        <!-- Menu padrão para telas grandes -->
+        <div class="navbar-menu" id="navbar-menu">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#servicos">Serviços</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#produtos">Produtos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contato">Contato</a>
-            </li>
+            <li class="nav-item"><a class="nav-link active" href="#servicos">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <div class="dark-mode-switch">
@@ -50,22 +48,17 @@
         </div>
       </div>
     </nav>
-
+  
+    <!-- Sidebar (Menu lateral para dispositivos móveis) -->
     <aside class="sidebar">
-      <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+      <button class="sidebar-close" aria-label="Fechar menu">&times;</button>
       <a class="sidebar-brand" href="#">
         <img src="./assets/logo-mobile.png" alt="Logo da cafeteria Serenatto">
       </a>
       <ul class="sidebar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#servicos">Serviços</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#produtos">Produtos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contato">Contato</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         <li class="nav-item">
           <a class="nav-link" href="#">
             <div class="dark-mode-switch">
@@ -80,6 +73,7 @@
       </ul>
     </aside>
   </header>
+  
 
   <main>
     <section class="banner banner-1">

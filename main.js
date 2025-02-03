@@ -1,5 +1,6 @@
 import './styles/main.scss';
 
+// Função para abrir modais de produtos
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   const backdrop = document.getElementById(`modal-backdrop-${modalId.split('-')[1]}`);
@@ -15,6 +16,7 @@ function openModal(modalId) {
   }
 }
 
+// Função para fechar modais de produtos
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   const backdrop = document.getElementById(`modal-backdrop-${modalId.split('-')[1]}`);
@@ -25,6 +27,7 @@ function closeModal(modalId) {
   }
 }
 
+// Ativa modais quando clicar nos produtos
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('click', function() {
     const modalId = this.getAttribute('data-modal');
@@ -32,34 +35,47 @@ document.querySelectorAll('.product-card').forEach(card => {
   });
 });
 
-document.getElementById('darkModeToggle').addEventListener('change', function() {
-  document.body.classList.toggle('dark-mode', this.checked);
-});
+// Ativa modo noturno pela navbar
+const darkModeToggle = document.getElementById('darkModeToggle');
+if (darkModeToggle) {
+  darkModeToggle.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+  });
+}
 
-document.getElementById('darkModeToggleSidebar').addEventListener('change', function() {
-  document.body.classList.toggle('dark-mode', this.checked);
-  const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('dark-mode', this.checked);
-});
-
-document.getElementById('menu-toggle').addEventListener('click', function() {
-  const menu = document.getElementById('navbar-menu');
-  this.classList.toggle('open');
-  menu.classList.toggle('open');
-});
+// Ativa modo noturno pela sidebar
+const darkModeToggleSidebar = document.getElementById('darkModeToggleSidebar');
+if (darkModeToggleSidebar) {
+  darkModeToggleSidebar.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('dark-mode', this.checked);
+  });
+}
 
 document.addEventListener('DOMContentLoaded', function () {
-  const toggler = document.querySelector('.navbar-toggler');
-  const sidebar = document.querySelector('.sidebar');
-  const closeSidebarButton = document.querySelector('.sidebar-close');
+  const menuToggle = document.getElementById('menu-toggle');  // Botão do menu hamburguer
+  const sidebar = document.querySelector('.sidebar');         // Sidebar (menu lateral)
+  const closeSidebarButton = document.querySelector('.sidebar-close');  // Botão de fechar (X)
 
-  toggler.addEventListener('click', function () {
-    sidebar.classList.toggle('open');
-    document.body.classList.toggle('sidebar-open');
-  });
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener('click', function(event) {
+      event.stopPropagation();  // Evita conflitos de clique
+      sidebar.classList.toggle('open');  // Adiciona ou remove a classe 'open' na sidebar
+    });
+  }
 
-  closeSidebarButton.addEventListener('click', function () {
-    sidebar.classList.remove('open');
-    document.body.classList.remove('sidebar-open');
+  if (closeSidebarButton) {
+    closeSidebarButton.addEventListener('click', function() {
+      sidebar.classList.remove('open');  // Fecha a sidebar
+    });
+  }
+
+  // Fecha a sidebar ao clicar fora dela
+  document.addEventListener('click', function(event) {
+    if (sidebar.classList.contains('open') && !sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
+      sidebar.classList.remove('open');  // Fecha a sidebar se clicar fora
+    }
   });
 });
+
